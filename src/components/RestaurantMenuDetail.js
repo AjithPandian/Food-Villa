@@ -6,7 +6,7 @@ import { addItem } from "../utils/cartSlice";
 const RestaurantMenuDetail = (props) => {
   // dispatching the addItem event to add the items to the cart
   const dispatch = useDispatch();
-  handleAddItem = (item) => {
+  const handleAddItem = (item) => {
     dispatch(addItem(item));
   };
 
@@ -32,6 +32,7 @@ const RestaurantMenuDetail = (props) => {
         </h3>
       </div>
       <button
+        data-testid="addBtn"
         className="p-2 m-2 text-xs font-semibold text-white bg-black rounded-md"
         onClick={() => handleAddItem(props)}
       >

@@ -26,6 +26,7 @@ const Body = () => {
     <>
       <div className="flex justify-center p-5 bg-pink-50 my-5">
         <input
+          data-testid="search-input"
           type="text"
           className="w-96 focus:border-purple-900 p-2 m-2 rounded-md"
           placeholder="Search"
@@ -33,6 +34,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
+          data-testid="search-btn"
           className="p-2 m-2 bg-purple-900 text-white rounded-md hover:bg-black"
           onClick={() => {
             if (searchText != "") {
@@ -47,7 +49,10 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-center">
+      <div
+        className="flex flex-wrap justify-center"
+        data-testid="restaurant-list"
+      >
         {filteredRestaurants.length === 0 ? (
           <h1>No restaurants matched you filter!!!</h1>
         ) : (

@@ -44,7 +44,7 @@ const RestaurantMenu = () => {
         </h3>
       </div>
 
-      <div className="p-4 m-4 flex-1">
+      <div className="p-4 m-4 flex-1" data-testid="menu">
         {menu.map((card, index) => {
           if (card?.card?.card?.title) {
             return (

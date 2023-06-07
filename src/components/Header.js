@@ -5,7 +5,12 @@ import { useSelector } from "react-redux";
 
 const Title = () => (
   <a href="/">
-    <img className="h-28 p-2" alt="logo" src={LOGO_URL}></img>
+    <img
+      data-testid="logo"
+      className="h-28 p-2"
+      alt="logo"
+      src={LOGO_URL}
+    ></img>
   </a>
 );
 
@@ -14,7 +19,7 @@ const Header = () => {
 
   // used to fetch the value from our store
   const cartItem = useSelector((store) => store.cart.items);
-  console.log(cartItem);
+  // console.log(cartItem);
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg">
       <Title />
@@ -32,7 +37,9 @@ const Header = () => {
           <Link className="px-2" to="/instamart">
             <li>Instamart</li>
           </Link>
-          <li className="px-2">Cart - {cartItem.length} items</li>
+          <li className="px-2" data-testid="cart">
+            Cart - {cartItem.length} items
+          </li>
 
           {isLoggedIn ? (
             <button className="px-4 ml-10" onClick={() => setLoggedData(false)}>
