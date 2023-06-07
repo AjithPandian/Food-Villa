@@ -48,10 +48,8 @@ const RestaurantMenu = () => {
         {menu.map((card, index) => {
           if (card?.card?.card?.title) {
             return (
-              <div>
-                <h1 className="font-bold text-xl " key={index}>
-                  {card.card.card.title}
-                </h1>
+              <div key={index}>
+                <h1 className="font-bold text-xl ">{card.card.card.title}</h1>
                 {card?.card?.card?.itemCards?.length > 0
                   ? card.card.card.itemCards.map((restMenu, index) => {
                       return (

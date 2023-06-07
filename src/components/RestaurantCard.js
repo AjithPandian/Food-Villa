@@ -6,10 +6,11 @@ const RestaurantCard = ({
   cuisines,
   cloudinaryImageId,
   deliveryTime,
+  avgRating,
   // the above one's are known as the props
 }) => {
   return (
-    <div className="w-72 min-h-[350px] p-4 m-2 bg-pink-50 shadow-lg rounded-md">
+    <div className="justify-self-start w-72 min-h-[350px] p-4 mx-8 my-4 bg-white hover:shadow-lg hover:border hover:border-b-gray-200 rounded-md">
       <img
         crossOrigin="anonymous"
         src={`${IMG_CDN_URL}${cloudinaryImageId}`}
@@ -22,6 +23,10 @@ const RestaurantCard = ({
       <h4>
         <span className="font-bold">Delivery time: </span>
         {deliveryTime} minutes
+      </h4>
+      <h4>
+        <span className="font-bold">Rating: </span>
+        {isNaN(+avgRating) ? "NA" : `${avgRating} stars`}
       </h4>
     </div>
   );

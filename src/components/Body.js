@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { filterData } from "../utils/helper";
+import { filterData, getTopRatedRestaurants } from "../utils/helper";
 // Custom Hooks
 import useOnline from "../utils/useOnline";
 import useRestaurants from "../utils/useRestaurants";
@@ -23,7 +23,7 @@ const Body = () => {
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <>
+    <div className="flex flex-col">
       <div className="flex justify-center p-5 bg-pink-50 my-5">
         <input
           data-testid="search-input"
@@ -47,10 +47,19 @@ const Body = () => {
         >
           Search
         </button>
+        <button
+          className="p-2 m-2 hover:text-white bg-purple-900 text-white rounded-md hover:bg-black"
+          onClick={() => {
+            const data = getTopRatedRestaurants(allRestaurants);
+            setFilteredRestaurants(data);
+          }}
+        >
+          Top rated ☪
+        </button>
       </div>
 
       <div
-        className="flex flex-wrap justify-center"
+        className="flex flex-wrap justify-center px-10"
         data-testid="restaurant-list"
       >
         {filteredRestaurants.length === 0 ? (
@@ -68,7 +77,7 @@ const Body = () => {
           })
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -5,3 +5,10 @@ export function filterData(searchText, restaurants) {
   );
   return filteredData;
 }
+
+export function getTopRatedRestaurants(restaurants) {
+  return restaurants.filter((restaurant) => {
+    let number = Number(restaurant.data.avgRating);
+    return !isNaN(number) && number > 4;
+  });
+}
